@@ -7,6 +7,7 @@ export @match, @capture
 include("match/match.jl")
 include("match/types.jl")
 include("match/union.jl")
+include("match/orderless.jl")
 include("match/macro.jl")
 
 include("utils.jl")

@@ -22,7 +22,7 @@ end
 
 function makeclause(pat, yes, els = nothing)
   bs = allbindings(pat)
-  pat = subtb(subor(pat))
+  pat = subtb(subor(subol(pat)))
   quote
     env = trymatch($(Expr(:quote, pat)), ex)
     if env != nothing
@@ -66,7 +66,7 @@ end
 
 macro capture(ex, pat)
   bs = allbindings(pat)
-  pat = subtb(subor(pat))
+  pat = subtb(subor(subol(pat)))
   quote
     $([:($(esc(b)) = nothing) for b in bs]...)
     env = trymatch($(Expr(:quote, pat)), $(esc(ex)))
